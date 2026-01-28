@@ -11,7 +11,7 @@ client = genai.Client(api_key=os.getenv("Google_API_KEY"))
 file_search_store = client.file_search_stores.create(config={'display_name': 'File search store'})
 
 operation = client.file_search_stores.upload_to_file_search_store(
-  file='Pdfs/Submittal_Set_.pdf',
+  file='Pdfs/WCSS.pdf',
   file_search_store_name=file_search_store.name,
   config={
       'display_name' : 'Submittal Set',
