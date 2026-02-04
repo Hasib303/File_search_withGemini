@@ -7,8 +7,8 @@ client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
 # Upload (Files API beta)
 uploaded = client.beta.files.upload(
-    file=("B25-6198_959-Sebastopol-Rd_Kitchen_PLN.pdf",
-          open("Pdfs/B25-6198_959-Sebastopol-Rd_Kitchen_PLN (1).pdf", "rb"),
+    file=("final_optimized.pdf",
+          open("Pdfs/final_optimized.pdf", "rb"),
           "application/pdf"),
     betas=["files-api-2025-04-14"],
 )
@@ -31,7 +31,7 @@ with client.beta.messages.stream(
             },
             {
                 "type": "text", 
-                "text": "Review this plan set. List key issues, missing items, and a sheet-by-sheet summary."
+                "text": "Review this plan set. Give me a summary of the file."
             },
         ],
     }],
