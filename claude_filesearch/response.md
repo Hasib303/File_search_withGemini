@@ -1,446 +1,120 @@
-# Food Truck Commissary Plan Set Review
-
-## Project Overview
-- **Project:** Food Truck Commissary Kitchen
-- **Location:** 959 Sebastopol Road, Santa Rosa, CA 95407
-- **Owner:** Santa Rosa Vehicle Storage LLC
-- **Architect:** Schwartz Architecture
-- **MEP Engineer:** Warner Mechanical Engineering
-- **Date:** October 10, 2025
-- **Project Scope:** Interior improvements to convert existing building to food truck commissary with cold storage, dry storage, and food preparation areas
-
-## Key Issues Identified
-
-### Critical Issues
-1. **Future date on drawings** - Issue date shows 10/10/2025, which is in the future (should be corrected)
-2. **Incomplete structural information** - Seismic design data reference on G01 states "SEE SHEET XXXX" - structural sheets appear to be missing
-3. **No fire sprinkler system** - Building indicates "NO" for fire sprinklers despite occupancy change and food service use
-4. **Deferred/Separate submittals listed as N/A** - May need clarification on what items are truly not applicable
-5. **Special inspections statement shows N/A** - Food service facilities typically require health department inspections
-
-### Code Compliance Concerns
-1. **Occupancy separation** - B to U occupancy requires 2-hour separation without sprinklers (noted correctly)
-2. **Grease interceptor sizing** - Shown on plans but calculations not provided
-3. **Ventilation rates** - Kitchen shows 93 CFM minimum, relatively low for commercial kitchen
-4. **Accessibility path of travel** - Multiple existing buildings on site; coordination needed
-5. **Fire extinguisher locations** - Noted as "COORD LOCATION PER FIRE MARSHAL" - needs resolution before permit
-
-### Design Coordination Issues
-1. **Structural drawings missing** - Referenced but not included in set
-2. **Civil drawings referenced** - Not included in architectural set
-3. **Fire protection noted as "NIC" (Not in Contract)** - Unclear who provides
-4. **Existing conditions verification** - Multiple notes to "V.I.F." (Verify in Field)
-5. **Sheet A1 reference on cover sheet** - Should be A41 per actual sheet list
-
-## Missing Items
-
-### Documentation
-- Structural drawings (foundation, framing, seismic)
-- Civil/site drawings (grading, utilities, paving)
-- Fire protection drawings (if required)
-- Electrical drawings (power, lighting, life safety)
-- Fire sprinkler shop drawings or justification for omission
-- Soils/geotechnical report reference
-- Title 24 energy compliance forms (CF1R, etc.)
-- Accessibility compliance forms
-
-### Technical Information
-- Grease interceptor sizing calculations
-- Kitchen hood suppression system details
-- Structural calculations for mezzanine
-- Foundation details for new construction
-- Seismic bracing details for utilities
-- Roof structural capacity verification
-- Fire-rated assembly details (UL listings)
-
-### Specifications
-- Division 1 General Requirements
-- Food service equipment specifications
-- Finishes specifications (beyond basic schedule)
-- Door hardware specifications (more detail needed)
-- Site work specifications
-
-## Sheet-by-Sheet Summary
-
-### G01 - Cover Sheet
-**Purpose:** Project identification, code summary, sheet index
-**Content:**
-- Project team contacts (Owner, Architect, Mechanical Engineer)
-- Site location maps and aerial photo
-- Building information summary (occupancy, area, construction type)
-- Applicable 2022 California codes listed
-- 31-sheet drawing set
-- Parcel information (APN 125-101-049, 2.39 acres)
-
-**Issues:**
-- Future date (10/10/2025)
-- Structural reference "XXXX"
-- No special inspections statement
-- Limited building code analysis
-
-### G02-G04 - Energy Compliance
-**Purpose:** Title 24 energy code compliance documentation
-**Content:**
-- Building energy analysis report (NRG Compliance)
-- Domestic water heating compliance (NRCC-PLB-E forms)
-- Mechanical systems compliance (NRCC-MCH-E forms)
-- 50-gallon commercial water heater (175,000 BTU/hr)
-- Pipe insulation requirements
-- Duct system requirements
-- Signed declarations by engineer (Jeff Warner, PE)
-
-**Issues:**
-- Forms are compliance documentation, not construction drawings
-- Some sections marked "does not apply to this project"
-- Ventilation calculations show minimal outdoor air
-
-### G11 - Building Code Compliance Plan
-**Purpose:** Life safety and accessibility analysis
-**Content:**
-- Code compliance legend and occupancy information
-- Means of egress analysis (travel distance, exit requirements)
-- Occupant load calculations (total 445 occupants for building)
-- Mixed occupancy analysis (B, F-1, S-1)
-- Common path and exit access travel distances
-- Required plumbing fixture count
-
-**Issues:**
-- Complex multi-occupancy building
-- Some exit routes through storage areas
-- Occupancy separation requirements noted
-- Area of work not clearly defined on this sheet
-
-### G15 - Architectural General Information
-**Purpose:** Standard notes, abbreviations, symbols
-**Content:**
-- Comprehensive abbreviations list
-- Architectural symbols and materials legend
-- Fire protection general notes
-- Room tag and door tag systems
-- Dimension and elevation conventions
-
-**Quality:** Well-organized reference sheet
-
-### A11 - Site Plan
-**Purpose:** Overall site context and work location
-**Content:**
-- Full site with multiple buildings and storage areas
-- Parking count (40 food truck spaces, RV/boat storage, standard parking)
-- Accessible parking and path of travel
-- Building location within site
-- APN boundaries for adjacent parcels
-- Work area highlighted
-
-**Issues:**
-- Site utilities not fully shown
-- Grading and drainage not detailed
-- Civil sheets referenced but not included
-- Limited site accessibility information
-
-### AD21 - Demolition Floor Plan
-**Purpose:** Existing conditions and demolition scope
-**Content:**
-- Existing building layout
-- Items to remain vs. remove
-- Minimal demolition (mostly door/opening infill)
-- General notes about existing construction
-
-**Issues:**
-- Limited detail on existing conditions
-- Hazardous materials assessment not referenced
-- Existing equipment disposition not clear
-
-### A21 - Floor Plan
-**Purpose:** New construction floor plan
-**Content:**
-- Room layout: commissary kitchen (508 SF), offices, restrooms
-- Door and window schedules referenced
-- Partition types defined
-- Finish keys
-- Area calculations by room and occupancy
-- Total B occupancy: 1,315 SF
-- Total S-1 occupancy: 6,277 SF
-
-**Quality:** Clear, well-dimensioned floor plan
-
-### A22 - Roof Plan
-**Purpose:** Roof layout and equipment locations
-**Content:**
-- Roof equipment locations (minimal)
-- Parapet conditions
-- Slope and drainage indicators
-- Equipment noted but limited detail
-
-**Issues:**
-- Kitchen exhaust termination location
-- HVAC equipment locations
-- Roof penetrations coordination
-- Structural coordination needed
-
-### A31 - Reflected Ceiling Plan
-**Purpose:** Ceiling systems and lighting layout
-**Content:**
-- Ceiling types (gypsum board, T-bar system)
-- Light fixture locations (existing and new)
-- HVAC terminal locations
-- Ceiling heights noted
-- Fire sprinkler locations (by others)
-
-**Issues:**
-- Lighting design by electrical (not included)
-- HVAC coordination with ceiling
-- Access panel locations
-
-### A41 - Enlarged Plans & Interior Elevations
-**Purpose:** Detailed kitchen and restroom layouts
-**Content:**
-- Commissary kitchen enlarged plan (1/4"=1'-0")
-- Restroom layouts with accessibility compliance
-- Interior elevations of key spaces
-- Detailed fixture locations
-- Equipment layout in kitchen
-- Grab bar locations and mounting heights
-
-**Quality:** Good level of detail for permit and construction
-
-### A51 - Demolition Exterior Elevations
-**Purpose:** Existing building elevations
-**Content:**
-- All four exterior elevations showing existing conditions
-- Building materials noted
-- Opening locations
-- Connection to adjacent structures
-
-**Issues:**
-- Limited detail on existing construction
-- Material conditions not assessed
-
-### A52 - Exterior Elevations (Proposed)
-**Purpose:** Proposed exterior appearance
-**Content:**
-- Modified elevations showing minimal changes
-- New door/window locations
-- Finish materials
-- Building height and massing
-
-**Notes:** Minimal exterior changes proposed
-
-### A53 - Building Sections and Mezzanine Plan
-**Purpose:** Vertical sections through building
-**Content:**
-- Two building sections (East/West, North/South)
-- Mezzanine floor plan (849 SF storage)
-- Height relationships
-- Roof structure indication
-- Floor-to-floor dimensions
-
-**Issues:**
-- Structural details limited
-- Mezzanine structural design not shown
-- Connection details needed
-
-### A61 - Schedules and Diagrams
-**Purpose:** Door, finish, and fixture schedules
-**Content:**
-- Door schedule (12 doors, mostly existing)
-- Door hardware groups (11 groups defined)
-- Room finish schedule (all spaces)
-- Header schedule
-- Finish legend with material descriptions
-
-**Quality:** Comprehensive schedules
-
-**Issues:**
-- Door hardware specifications could be more detailed
-- Fire ratings need verification
-
-### A91-A93 - Accessibility Details
-**Purpose:** ADA/CBC compliance details
-**Content:**
-- Accessible routes and level changes
-- Reach ranges (forward and side approach)
-- Door maneuvering clearances
-- Restroom fixture clearances
-- Parking space dimensions and striping
-- Signage requirements (tactile, visual, ISA)
-- Grab bar installation details
-
-**Quality:** Thorough accessibility documentation per CBC Chapter 11B
-
-### A94 - Interior Framing Details - Wood
-**Purpose:** Wood stud wall construction
-**Content:**
-- Partition types A, B, C with UL ratings
-- Stud wall framing at openings
-- Header schedules
-- Nailing schedules
-- Blocking and backing details
-- Corner and intersection details
-
-**Quality:** Standard details, well-documented
-
-### A95 - Interior Framing Details - Steel
-**Purpose:** Metal stud construction
-**Content:**
-- Light gauge framing schedules (studs, tracks, headers)
-- Partition types D, E with assemblies
-- Deflection track details
-- Seismic bracing requirements
-- Metal stud sizes and spacing
-
-**Quality:** Comprehensive steel stud details
-
-### A96 - Suspended Lay-In Ceiling Details
-**Purpose:** Acoustical panel ceiling system
-**Content:**
-- Typical suspended ceiling grid components
-- Hanger wire spacing and installation (4' o.c.)
-- Seismic bracing requirements (compression struts, splay wires)
-- Light fixture support methods (<56 lbs and ≥56 lbs)
-- Perimeter conditions (fixed and free)
-- Compliance with ASTM C635 and CBC requirements
-
-**Quality:** Detailed suspended ceiling system per code
-
-### A97 - Suspended Gyp. Bd. Clng. Details
-**Purpose:** Suspended gypsum board ceiling systems
-**Content:**
-- Conventional gypsum board ceiling construction
-- Main runners (1-1/2" channels at 4' o.c.)
-- Cross furring (7/8" hat channels at 24" o.c.)
-- Hanger wire requirements (#8 gage at 48" o.c.)
-- Seismic bracing details
-- Light fixture support for both weight categories
-- Saddle tie connections
-
-**Quality:** Complete gypsum board ceiling system details
-
-### A98 - Ceiling Details (Deck Attachments)
-**Purpose:** Ceiling suspension from structure above
-**Content:**
-- Compression strut options (channel, tube)
-- Connections to steel framing
-- Bracing wire attachments to steel deck
-- Hanger wire connections to steel structure
-
-**Notes:** Specialized details for existing building conditions
-
-### A99 - Trench Details
-**Purpose:** Utility trench construction (City of Santa Rosa standards)
-**Content:**
-- Standard City of Santa Rosa trench details (6 sheets)
-- Backfill and surfacing requirements
-- Narrow trench and small hole details
-- Pipe bedding specifications
-- Control density fill (CDF) specifications
-- Compaction requirements (90-95% relative compaction)
-- AC pavement restoration thickness by street type
-
-**Quality:** Standard public works details
-
-**Issues:**
-- Applicability to private site work unclear
-- May be included for utility connections only
-
-### P0.1 - Plumbing Legend, Schedules, Details, HW Calculation
-**Purpose:** Plumbing system overview and equipment
-**Content:**
-- Comprehensive plumbing legend and symbols
-- Recirculation pump schedule (Grundfos Alpha)
-- Expansion tank schedule (Amtrol ST-5)
-- Gas water heater schedule (A.O. Smith BTS-175, 175,000 BTU/hr, 50 gal)
-- Existing electric water heater (to remain)
-- Hot water calculations (GPH requirements)
-- Domestic water heater piping diagram
-- Water heater strapping detail (seismic)
-- Gas connection detail
-- Pipe rack detail
-
-**Quality:** Complete equipment information
-
-**Issues:**
-- Recirculation pump may be oversized
-- Hot water demand calculations could be more detailed
-
-### P0.2 - Plumbing Specifications
-**Purpose:** Plumbing scope of work and technical specifications
-**Content:**
-- General requirements and quality assurance
-- Piping materials (copper, PVC, PE, steel)
-- Valve specifications (ball, gate, check, PRV, backflow preventer)
-- Insulation requirements per CEC Table 120.3-A
-- Fixture connection requirements
-- Installation procedures (piping, supports, testing)
-- Testing requirements (hydrostatic, pneumatic)
-- Cleaning and sanitization (50 PPM chlorine, 24 hours)
-- CalGreen compliance notes (12% water use reduction)
-
-**Quality:** Comprehensive specifications
-
-**Issues:**
-- Some sections reference items "not in contract"
-- Grease waste piping material: schedule-40 polypropylene, non-flame retardant
-
-### P2.1 - Plumbing Piping Plan
-**Purpose:** Plumbing fixture and piping layout
-**Content:**
-- Domestic water distribution (cold and hot)
-- Sanitary sewer and vent piping
-- Grease interceptor connection (existing, S.M.D.)
-- Gas piping to water heater and future stub
-- Fixture locations: mop sink, 3-compartment sink, prep sinks, hand sinks
-- Water heater location in mechanical space
-- Connections to existing systems
-- Piping sized and noted
-
-**Quality:** Clear piping layout
-
-**Issues:**
-- Grease interceptor sizing not shown
-- Future gas stub for expansion noted
-- Coordination with kitchen equipment needed
-- Some piping "down in wall" - coordination with framing
-
-### M0.1 - HVAC Legend, Schedules, Ventilation Calculation
-**Purpose:** HVAC system overview
-**Content:**
-- HVAC legend and symbols
-- Fan schedule: SF-1 (Greenheck SQ-80-VG, centrifugal inline, 100 CFM, 0.75" SP)
-- Ceiling exhaust fan schedule: CEF-2 (Greenheck SP-50, 50 CFM)
-- Gravity hood schedule: GH-1 (Greenheck GRS1-8)
-- Control notes (timer control, continuous operation during occupied hours)
-- Ventilation notes and energy code compliance
-- Ventilation calculation per CEC Table 120.1-A:
-  - Kitchen: 620 SF, 3 occupants
-  - Min CFM by area: 93 CFM (0.15 CFM/SF)
-  - Min CFM by occupancy: 47 CFM (15 CFM/person)
-  - **Required: 93 CFM**
-
-**Issues:**
-- **Ventilation rate very low for commercial kitchen** (typically 15-20 air changes/hour)
-- No kitchen hood exhaust shown
-- Filter cabinet with MERV-13 shown
-- System appears undersized for food preparation
-
-### M0.2 - HVAC Specifications
-**Purpose:** Mechanical scope of work and technical specifications
-**Content:**
-- General requirements and quality assurance (mirrors plumbing)
-- Sheet metal materials (G-90 galvanized steel per SMACNA)
-- Duct construction standards (rectangular and round)
-- Duct sealing requirements (UL 181, no cloth duct tape alone)
-- Insulation: R-8 (2" thick) in unconditioned spaces, R-4.2 (1-1/2") in indirectly conditioned
-- Flexible connectors at equipment
-- Controls (programmable timers, room thermostats)
-- Support and seismic bracing per ASCE 7
-- Testing and balancing requirements
-- Duct leakage testing per SMACNA
-
-**Quality:** Comprehensive HVAC specifications
-
-**Issues:**
-- Requirements exceed what's shown on drawings
-- Kitchen exhaust hood not addressed
-- No cooling system shown
-
-### M2.1%  
+# Code Compliance Review - Food Truck Commissary
+
+## Project Information
+- **Project**: Food Truck Commissary at Santa Rosa Vehicle Storage LLC
+- **Location**: 959 Sebastopol Road, Santa Rosa, CA 95407
+- **Occupancy**: B (Business) with S-1 (Storage) components
+- **Construction Type**: Type V-B
+- **Issue Date**: 10/10/2025
+
+---
+
+## Issues Identified
+
+### 1. **Critical Date Issue**
+- **Issue**: The issue date listed is **10/10/2025**, which is in the future (as of current review).
+- **Code Reference**: This appears to be a typographical error. Construction documents should reflect accurate dates.
+- **Recommendation**: Correct the issue date to reflect the actual submission date.
+
+---
+
+### 2. **Conflicting Occupancy Information**
+- **Issue**: The cover sheet (G01) indicates multiple occupancy groups including B, F-1, and S-1, with mixed occupancy classification. However, the specific classification and separation requirements are not clearly detailed.
+- **Code Reference**: CBC 508 (Mixed Occupancy)
+- **Recommendation**: Clarify whether accessory occupancies (CBC 508.2), nonseparated (508.3), or separated (508.4) occupancy rules apply. The code compliance plan should clearly show separation details.
+
+---
+
+### 3. **Fire Sprinkler System Discrepancy**
+- **Issue**: Sheet G01 states "FIRE SPRINKLERS: NO" for the existing building, but this is a commercial kitchen facility with food preparation, which typically requires automatic fire suppression.
+- **Code Reference**: 
+  - CBC 903.2 (Automatic Sprinkler Systems)
+  - CFC 904.2 (Commercial Cooking Systems)
+- **Recommendation**: Verify if the facility requires automatic sprinklers based on occupancy load, area, and use. Commercial kitchen hoods typically require Type I hood systems with suppression.
+
+---
+
+### 4. **Commercial Kitchen Ventilation**
+- **Issue**: The drawings show ventilation equipment (SF-1, CEF-2) but do not clearly indicate if the kitchen exhaust hood is a **Type I** or **Type II** hood system.
+- **Code Reference**: 
+  - CMC 507 (Commercial Kitchen Hoods)
+  - IMC 507.2.1 (Type I hoods required for grease-producing appliances)
+- **Recommendation**: Specify hood type and confirm compliance with commercial kitchen exhaust requirements, including fire suppression if Type I hood is required.
+
+---
+
+### 5. **Plumbing Fixture Count**
+- **Issue**: The plumbing fixture calculations show fixtures for B and S-1 occupancies, but the **grease interceptor** sizing and service sink requirements for the commissary kitchen are not clearly documented.
+- **Code Reference**: 
+  - CPC 1014 (Grease Interceptors)
+  - CPC Table 4-1 (Minimum Plumbing Fixtures)
+- **Recommendation**: Provide grease interceptor sizing calculations and confirm compliance with local requirements for food service facilities.
+
+---
+
+### 6. **Accessibility - Path of Travel**
+- **Issue**: While accessible parking and toilet rooms are shown, the **primary function area** (commissary kitchen) is indicated as a new use. CBC 11B-202.4 requires that when alterations affect a primary function area, the path of travel must be upgraded.
+- **Code Reference**: CBC 11B-202.4
+- **Recommendation**: Verify that 20% of alteration costs are allocated to path of travel improvements (accessible route, restrooms, drinking fountains, etc.) unless disproportionate.
+
+---
+
+### 7. **Accessible Toilet Room Compliance**
+- **Issue**: Toilet room details show accessibility features, but the commissary kitchen area (101) shows an occupant load of 2.5 (rounded to 3). It's unclear if separate employee facilities are required or if the existing toilet rooms adequately serve the new use.
+- **Code Reference**: CBC 2902 (Minimum Number of Fixtures)
+- **Recommendation**: Confirm fixture count meets minimum requirements for both the commissary kitchen employees and the overall building occupancy.
+
+---
+
+### 8. **Energy Compliance - Mechanical Ventilation**
+- **Issue**: Energy compliance forms (G02-G04) show ventilation calculations, but the **demand control ventilation** (DCV) or **energy recovery** requirements for the commercial kitchen are not addressed.
+- **Code Reference**: CEC 140.4(m) and 120.1 (Ventilation and Indoor Air Quality)
+- **Recommendation**: Verify if the kitchen exhaust system requires makeup air with energy recovery or other energy-saving measures per Title 24 Part 6.
+
+---
+
+### 9. **Exit Signage and Emergency Lighting**
+- **Issue**: The plans show exit routes and occupant loads, but **exit signs** and **emergency egress illumination** are not clearly indicated on the floor plans or reflected ceiling plans.
+- **Code Reference**: 
+  - CBC 1013 (Exit Signs)
+  - CBC 1008 (Means of Egress Illumination)
+- **Recommendation**: Add exit signage and emergency lighting to the plans, especially along the path of egress travel from the commissary kitchen.
+
+---
+
+### 10. **Fire Separation - B to S-1 Occupancy**
+- **Issue**: The code compliance plan indicates a **2-hour fire separation required between B and U occupancies** without sprinklers, but details of the separation assembly are not provided.
+- **Code Reference**: CBC Table 508.4
+- **Recommendation**: Provide fire-rated assembly details and confirm proper penetration protection for all utilities crossing the separation.
+
+---
+
+### 11. **Trench Detail Reference**
+- **Issue**: Sheet A99 references "Santa Rosa Standard Trench Details" but these appear to be civil/plumbing related. It's unclear if these apply to the current scope or are included for reference only.
+- **Recommendation**: Clarify applicability and ensure trench details comply with current City of Santa Rosa standards.
+
+---
+
+### 12. **Water Heater Installation**
+- **Issue**: The plumbing plans show a new 50-gallon gas water heater (WH-1) with T&P relief and seismic strapping details. However, **combustion air** and **venting** details are referenced to HVAC drawings (M2.1), but M2.1 does not provide specific flue vent sizing or termination details.
+- **Code Reference**: 
+  - CPC Chapter 5 (Water Heaters)
+  - CMC Chapter 8 (Chimneys and Vents)
+- **Recommendation**: Provide complete combustion air and venting details, including flue size, termination height, and clearances.
+
+---
+
+## Summary
+
+The plans are generally comprehensive but require clarification and corrections in the following areas:
+
+1. **Correct the issue date** (currently shows future date: 10/10/2025)
+2. **Clarify fire sprinkler requirements** for the occupancy and use
+3. **Specify Type I or Type II hood** for commercial kitchen
+4. **Provide grease interceptor sizing** calculations
+5. **Verify accessibility path of travel** compliance per CBC 11B-202.4
+6. **Add exit signs and emergency lighting** to plans
+7. **Detail fire-rated separations** between occupancies
+8. **Complete water heater venting details** and combustion air requirements
+
+**Recommendation**: Address these items prior to permit issuance to ensure full code compliance.%  

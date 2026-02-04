@@ -2,3 +2,4 @@ google
 google.genai
 dotenv
 anthropic
+pypdf
