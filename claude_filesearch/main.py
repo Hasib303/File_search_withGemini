@@ -7,9 +7,11 @@ client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
 # Upload (Files API beta)
 uploaded = client.beta.files.upload(
-    file=("final_optimized.pdf",
-          open("Pdfs/final_optimized.pdf", "rb"),
-          "application/pdf"),
+    file=(
+        "Building-AI-Agents-With-LLMs-RAG-And-Knowledge-Graphs.pdf",
+        open("Pdfs/Building-AI-Agents-With-LLMs-RAG-And-Knowledge-Graphs.pdf", "rb"),
+        "application/pdf",
+    ),
     betas=["files-api-2025-04-14"],
 )
 file_id = uploaded.id
@@ -19,22 +21,18 @@ with client.beta.messages.stream(
     model="claude-sonnet-4-5",
     max_tokens=4096,
     betas=["files-api-2025-04-14"],  # keep this so the file_id works
-    messages=[{
-        "role": "user",
-        "content": [
-            {
-                "type": "document", 
-                "source": {
-                    "type": "file", 
-                    "file_id": file_id
-                }
-            },
-            {
-                "type": "text", 
-                "text": "Review this plan set. Give me a summary of the file."
-            },
-        ],
-    }],
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {"type": "document", "source": {"type": "file", "file_id": file_id}},
+                {
+                    "type": "text",
+                    "text": "Give me a summary of the document.",
+                },
+            ],
+        }
+    ],
 ) as stream:
     for text in stream.text_stream:
         print(text, end="", flush=True)
