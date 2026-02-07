@@ -8,8 +8,8 @@ load_dotenv()
 client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
 # Limits
-MAX_PAGES_PER_CHUNK = 100  # Claude API limit
-MAX_CHUNK_SIZE_MB = 30     # Stay under 32MB processing limit
+MAX_PAGES_PER_CHUNK = 99  # Claude API limit
+MAX_CHUNK_SIZE_MB = 30  # Stay under 32MB processing limit
 
 
 def get_pdf_info(pdf_path: str) -> tuple[int, float]:
@@ -70,7 +70,9 @@ def split_pdf(pdf_path: str, chunk_size: int = None) -> list[str]:
     chunk_paths = []
     num_chunks = (total_pages + chunk_size - 1) // chunk_size
 
-    print(f"Splitting {total_pages} pages into {num_chunks} chunks of ~{chunk_size} pages each")
+    print(
+        f"Splitting {total_pages} pages into {num_chunks} chunks of ~{chunk_size} pages each"
+    )
 
     for chunk_idx in range(num_chunks):
         start_page = chunk_idx * chunk_size
@@ -81,15 +83,16 @@ def split_pdf(pdf_path: str, chunk_size: int = None) -> list[str]:
             writer.add_page(reader.pages[page_num])
 
         temp_file = tempfile.NamedTemporaryFile(
-            suffix=f"_part{chunk_idx + 1}.pdf",
-            delete=False
+            suffix=f"_part{chunk_idx + 1}.pdf", delete=False
         )
         writer.write(temp_file)
         temp_file.close()
         chunk_paths.append(temp_file.name)
 
         chunk_size_mb = os.path.getsize(temp_file.name) / (1024 * 1024)
-        print(f"  Chunk {chunk_idx + 1}/{num_chunks}: pages {start_page + 1}-{end_page} ({chunk_size_mb:.1f} MB)")
+        print(
+            f"  Chunk {chunk_idx + 1}/{num_chunks}: pages {start_page + 1}-{end_page} ({chunk_size_mb:.1f} MB)"
+        )
 
     return chunk_paths
 
@@ -104,17 +107,13 @@ def upload_chunk(chunk_path: str, part_name: str) -> str:
     return uploaded.id
 
 
-def query_single_chunk(file_id: str, part_name: str, question: str, part_info: str = "") -> str:
+def query_single_chunk(
+    file_id: str, part_name: str, question: str, part_info: str = ""
+) -> str:
     """Query a single PDF chunk and return the response."""
     content = [
-        {
-            "type": "document",
-            "source": {"type": "file", "file_id": file_id}
-        },
-        {
-            "type": "text",
-            "text": f"{part_info}{question}"
-        }
+        {"type": "document", "source": {"type": "file", "file_id": file_id}},
+        {"type": "text", "text": f"{part_info}{question}"},
     ]
 
     response_text = ""
@@ -153,14 +152,16 @@ def query_pdf_sequential(pdf_path: str, question: str) -> str:
 
         if num_chunks > 1:
             part_name = f"{base_name} (Part {part_num} of {num_chunks})"
-            part_info = f"[This is Part {part_num} of {num_chunks} of a larger document]\n\n"
+            part_info = (
+                f"[This is Part {part_num} of {num_chunks} of a larger document]\n\n"
+            )
         else:
             part_name = original_name
             part_info = ""
 
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print(f"Processing: {part_name}")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
 
         # Upload chunk
         print("Uploading...")
@@ -179,14 +180,14 @@ def query_pdf_sequential(pdf_path: str, question: str) -> str:
 
     # If multiple chunks, provide a summary
     if num_chunks > 1:
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print("AGGREGATING RESPONSES...")
-        print(f"{'='*60}\n")
+        print(f"{'=' * 60}\n")
 
         # Build aggregation prompt
-        combined_responses = "\n\n".join([
-            f"### {name}:\n{resp}" for name, resp in all_responses
-        ])
+        combined_responses = "\n\n".join(
+            [f"### {name}:\n{resp}" for name, resp in all_responses]
+        )
 
         aggregation_prompt = f"""I asked the following question about a {page_count}-page document that was split into {num_chunks} parts:
 
@@ -224,7 +225,7 @@ def query_pdf(pdf_path: str, question: str) -> str:
 
 # Example usage
 if __name__ == "__main__":
-    PDF_PATH = "Pdfs/final_optimized.pdf"
-    QUESTION = "Look at the documents, and tell me the scope of work."
+    PDF_PATH = "Pdfs/Building-AI-Agents-With-LLMs-RAG-And-Knowledge-Graphs.pdf"
+    QUESTION = "Look at the document, and tell me the summary."
 
     response = query_pdf(PDF_PATH, QUESTION)
