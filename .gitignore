@@ -3,3 +3,4 @@ __pycache__
 Pdfs/
 .venv/
 .DS_Store
+.python-version

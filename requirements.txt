@@ -1,4 +1,0 @@
-google
-google.genai
-dotenv
-anthropic
