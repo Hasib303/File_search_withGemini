@@ -8,15 +8,15 @@ from pypdf import PdfReader, PdfWriter
 
 load_dotenv()
 
-# Increase timeout for large file uploads (10 minutes)
+# Increase timeout (5 minutes - max before server timeout)
 client = genai.Client(
     api_key=os.getenv("Google_API_KEY"),
     http_options=types.HttpOptions(
-        timeout=200000,  # 600 seconds in milliseconds
+        timeout=300000,  # 300 seconds (5 minutes)
     ),
 )
 
-MAX_SIZE_MB = 30  # Smaller chunks = faster uploads
+MAX_SIZE_MB = 20  # Smaller chunks = faster query response
 
 
 # --- STEP 1: Split PDF by actual file size ---
@@ -140,7 +140,7 @@ def ask(uploaded_files, question):
     contents.append(question)
 
     response = client.models.generate_content(
-        model="gemini-2.5-flash", contents=contents
+        model="gemini-2.5-flash-lite", contents=contents
     )
 
     return response.text
