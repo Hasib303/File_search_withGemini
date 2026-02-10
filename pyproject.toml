@@ -9,4 +9,5 @@ dependencies = [
     "google.genai",
     "dotenv",
     "anthropic",
+    "pypdf>=6.7.0",
 ]
