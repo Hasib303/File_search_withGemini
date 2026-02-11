@@ -1,6 +1,15 @@
 # Gemini File Search
 
-This program leverages Google's Gemini API to perform intelligent file searches and question-answering on PDF documents. It uploads a PDF to a Gemini File Search Store and allows users to interactively ask questions about the document's content using the Gemini 2.0 Flash model.
+This program leverages Google's Gemini API to perform intelligent file searches and question-answering on documents. It uploads files to Gemini and allows users to interactively ask questions about the content.
+
+## Supported Files
+
+| Type | Extensions |
+|------|------------|
+| Documents | `.pdf`, `.txt`, `.json`, `.csv` |
+| Images | `.png`, `.jpg`, `.jpeg`, `.webp` |
+| Video | `.mp4`, `.mov`, `.mpeg`, `.mpg`, `.webm`, `.wmv`, `.flv`, `.3gp` |
+| Audio | `.mp3`, `.wav`, `.aac`, `.flac`, `.opus`, `.m4a`, `.ogg` |
 
 ## Get API Key
 

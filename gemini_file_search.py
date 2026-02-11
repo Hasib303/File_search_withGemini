@@ -18,6 +18,51 @@ client = genai.Client(
 
 MAX_SIZE_MB = 20  # Smaller chunks = faster query response
 
+# Supported file types and their MIME types
+SUPPORTED_MIME_TYPES = {
+    # Documents
+    ".pdf": "application/pdf",
+    ".txt": "text/plain",
+    ".json": "application/json",
+    ".csv": "text/csv",
+    # Images
+    ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".webp": "image/webp",
+    # Video
+    ".mp4": "video/mp4",
+    ".mov": "video/quicktime",
+    ".mpeg": "video/mpeg",
+    ".mpg": "video/mpeg",
+    ".webm": "video/webm",
+    ".wmv": "video/wmv",
+    ".flv": "video/x-flv",
+    ".3gpp": "video/3gpp",
+    ".3gp": "video/3gpp",
+    # Audio
+    ".mp3": "audio/mp3",
+    ".wav": "audio/wav",
+    ".aac": "audio/aac",
+    ".flac": "audio/flac",
+    ".opus": "audio/opus",
+    ".m4a": "audio/m4a",
+    ".ogg": "audio/ogg",
+}
+
+
+def get_mime_type(file_path):
+    """Get MIME type from file extension."""
+    ext = os.path.splitext(file_path)[1].lower()
+    if ext not in SUPPORTED_MIME_TYPES:
+        raise ValueError(f"Unsupported file type: {ext}")
+    return SUPPORTED_MIME_TYPES[ext]
+
+
+def is_pdf(file_path):
+    """Check if file is a PDF."""
+    return os.path.splitext(file_path)[1].lower() == ".pdf"
+
 
 # --- STEP 1: Split PDF by actual file size ---
 def split_pdf(file_path):
@@ -103,7 +148,7 @@ def split_pdf(file_path):
 
 
 # --- STEP 2: Upload files to Gemini ---
-def upload_files(file_paths):
+def upload_files(file_paths, mime_type):
     uploaded = []
 
     for i, path in enumerate(file_paths):
@@ -112,7 +157,7 @@ def upload_files(file_paths):
 
         file = client.files.upload(
             file=path,
-            config=types.UploadFileConfig(mime_type="application/pdf"),
+            config=types.UploadFileConfig(mime_type=mime_type),
         )
 
         # Wait for processing
@@ -129,12 +174,12 @@ def upload_files(file_paths):
 
 
 # --- STEP 3: Ask question ---
-def ask(uploaded_files, question):
+def ask(uploaded_files, mime_type, question):
     contents = []
 
     for f in uploaded_files:
         contents.append(
-            types.Part.from_uri(file_uri=f.uri, mime_type="application/pdf")
+            types.Part.from_uri(file_uri=f.uri, mime_type=mime_type)
         )
 
     contents.append(question)
@@ -147,18 +192,32 @@ def ask(uploaded_files, question):
 
 
 # --- MAIN ---
-file_path = input("PDF path: ") or "Pdfs/WCSS.pdf"
+file_path = input("File path: ") or "Pdfs/WCSS.pdf"
 
 if not os.path.exists(file_path):
     print(f"File not found: {file_path}")
     exit()
 
-# Split by size
-chunks = split_pdf(file_path)
+# Get MIME type
+try:
+    mime_type = get_mime_type(file_path)
+    print(f"File type: {mime_type}")
+except ValueError as e:
+    print(e)
+    exit()
+
+# Split only if PDF, otherwise use as-is
+if is_pdf(file_path):
+    chunks = split_pdf(file_path)
+else:
+    file_size_mb = os.path.getsize(file_path) / (1024 * 1024)
+    print(f"File size: {file_size_mb:.1f} MB")
+    chunks = [file_path]
+
 print(f"\nTotal chunks: {len(chunks)}")
 
 # Upload
-uploaded_files = upload_files(chunks)
+uploaded_files = upload_files(chunks, mime_type)
 print("Ready!\n")
 
 # Q&A loop
@@ -167,7 +226,7 @@ while True:
     if question.lower() == "e":
         break
 
-    answer = ask(uploaded_files, question)
+    answer = ask(uploaded_files, mime_type, question)
     print(f"Gemini: {answer}\n")
 
 print("Done!")
