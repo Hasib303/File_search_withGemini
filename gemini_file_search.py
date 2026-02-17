@@ -174,15 +174,34 @@ def upload_files(file_paths, mime_type):
 
 
 # --- STEP 3: Ask question ---
-def ask(uploaded_files, mime_type, question):
+def ask(all_files_dict, question):
+    """
+    Send all file references + file context + question to Gemini.
+    all_files_dict: {"filename": {"refs": [...], "mime_type": "..."}, ...}
+    """
     contents = []
 
-    for f in uploaded_files:
-        contents.append(
-            types.Part.from_uri(file_uri=f.uri, mime_type=mime_type)
-        )
+    # Build file context for Gemini
+    file_context = "You have access to these uploaded files:\n"
 
-    contents.append(question)
+    for filename, data in all_files_dict.items():
+        chunk_count = len(data["refs"])
+
+        # Add all file references to contents
+        for ref in data["refs"]:
+            contents.append(
+                types.Part.from_uri(file_uri=ref.uri, mime_type=data["mime_type"])
+            )
+
+        # Build context string
+        if chunk_count > 1:
+            file_context += f"- {filename} ({chunk_count} parts - this is ONE document split into multiple parts)\n"
+        else:
+            file_context += f"- {filename}\n"
+
+    # Add context + question
+    full_prompt = f"{file_context}\nUser question: {question}"
+    contents.append(full_prompt)
 
     response = client.models.generate_content(
         model="gemini-2.5-flash-lite", contents=contents
@@ -246,56 +265,28 @@ if not all_files:
     print("\nNo files were uploaded successfully.")
     exit()
 
-print(f"Ready! {len(all_files)} file(s) uploaded.")
+# Show uploaded files summary
+print(f"\nReady! {len(all_files)} file(s) uploaded:")
+for filename, data in all_files.items():
+    chunk_count = len(data["refs"])
+    if chunk_count > 1:
+        print(f"  - {filename} ({chunk_count} parts)")
+    else:
+        print(f"  - {filename}")
 
-# Show available files
-def show_files():
-    print("\nAvailable files:")
-    for i, filename in enumerate(all_files.keys(), 1):
-        refs_count = len(all_files[filename]["refs"])
-        print(f"  {i}. {filename} ({refs_count} chunk(s))")
-    print(f"  a. ALL files")
-    print(f"  e. Exit")
+print("\nAsk any question about your files. Type 'e' to exit.\n")
 
-# Q&A loop
+# Q&A loop - free-form questions
 while True:
-    show_files()
-    choice = input("\nSelect file (number/a/e): ").strip().lower()
+    question = input("You: ").strip()
 
-    if choice == "e":
+    if question.lower() == "e":
         break
 
-    # Determine which files to query
-    if choice == "a":
-        # Query all files
-        selected_refs = []
-        selected_mime = None
-        for data in all_files.values():
-            selected_refs.extend(data["refs"])
-            selected_mime = data["mime_type"]  # Use last mime type (not ideal but works)
-        print("Querying ALL files...")
-    else:
-        # Query specific file by number
-        try:
-            idx = int(choice) - 1
-            filenames = list(all_files.keys())
-            if 0 <= idx < len(filenames):
-                selected_filename = filenames[idx]
-                selected_refs = all_files[selected_filename]["refs"]
-                selected_mime = all_files[selected_filename]["mime_type"]
-                print(f"Querying: {selected_filename}")
-            else:
-                print("Invalid selection.")
-                continue
-        except ValueError:
-            print("Invalid input. Enter a number, 'a', or 'e'.")
-            continue
-
-    question = input("You: ").strip()
     if not question:
         continue
 
-    answer = ask(selected_refs, selected_mime, question)
+    answer = ask(all_files, question)
     print(f"\nGemini: {answer}\n")
 
 print("Done!")
