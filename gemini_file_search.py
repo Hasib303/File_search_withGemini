@@ -192,41 +192,110 @@ def ask(uploaded_files, mime_type, question):
 
 
 # --- MAIN ---
-file_path = input("File path: ") or "Pdfs/WCSS.pdf"
+file_paths_input = input("File paths (comma-separated): ").strip()
 
-if not os.path.exists(file_path):
-    print(f"File not found: {file_path}")
+if not file_paths_input:
+    print("No files provided.")
     exit()
 
-# Get MIME type
-try:
-    mime_type = get_mime_type(file_path)
-    print(f"File type: {mime_type}")
-except ValueError as e:
-    print(e)
+# Parse comma-separated paths
+file_paths = [p.strip() for p in file_paths_input.split(",")]
+
+# Dictionary to store references per file: {"filename": {"refs": [...], "mime_type": "..."}}
+all_files = {}
+
+# Process each file
+for file_path in file_paths:
+    print(f"Processing: {file_path}")
+
+    if not os.path.exists(file_path):
+        print(f"  File not found: {file_path} - SKIPPING")
+        continue
+
+    # Get MIME type
+    try:
+        mime_type = get_mime_type(file_path)
+        print(f"  File type: {mime_type}")
+    except ValueError as e:
+        print(f"  {e} - SKIPPING")
+        continue
+
+    # Split only if PDF, otherwise use as-is
+    if is_pdf(file_path):
+        chunks = split_pdf(file_path)
+    else:
+        file_size_mb = os.path.getsize(file_path) / (1024 * 1024)
+        print(f"  File size: {file_size_mb:.1f} MB")
+        chunks = [file_path]
+
+    print(f"  Total chunks: {len(chunks)}")
+
+    # Upload
+    uploaded_refs = upload_files(chunks, mime_type)
+
+    # Store with filename as key
+    filename = os.path.basename(file_path)
+    all_files[filename] = {
+        "refs": uploaded_refs,
+        "mime_type": mime_type
+    }
+    print(f"  Uploaded: {filename}")
+
+# Check if any files were uploaded
+if not all_files:
+    print("\nNo files were uploaded successfully.")
     exit()
 
-# Split only if PDF, otherwise use as-is
-if is_pdf(file_path):
-    chunks = split_pdf(file_path)
-else:
-    file_size_mb = os.path.getsize(file_path) / (1024 * 1024)
-    print(f"File size: {file_size_mb:.1f} MB")
-    chunks = [file_path]
+print(f"Ready! {len(all_files)} file(s) uploaded.")
 
-print(f"\nTotal chunks: {len(chunks)}")
-
-# Upload
-uploaded_files = upload_files(chunks, mime_type)
-print("Ready!\n")
+# Show available files
+def show_files():
+    print("\nAvailable files:")
+    for i, filename in enumerate(all_files.keys(), 1):
+        refs_count = len(all_files[filename]["refs"])
+        print(f"  {i}. {filename} ({refs_count} chunk(s))")
+    print(f"  a. ALL files")
+    print(f"  e. Exit")
 
 # Q&A loop
 while True:
-    question = input("You: ")
-    if question.lower() == "e":
+    show_files()
+    choice = input("\nSelect file (number/a/e): ").strip().lower()
+
+    if choice == "e":
         break
 
-    answer = ask(uploaded_files, mime_type, question)
-    print(f"Gemini: {answer}\n")
+    # Determine which files to query
+    if choice == "a":
+        # Query all files
+        selected_refs = []
+        selected_mime = None
+        for data in all_files.values():
+            selected_refs.extend(data["refs"])
+            selected_mime = data["mime_type"]  # Use last mime type (not ideal but works)
+        print("Querying ALL files...")
+    else:
+        # Query specific file by number
+        try:
+            idx = int(choice) - 1
+            filenames = list(all_files.keys())
+            if 0 <= idx < len(filenames):
+                selected_filename = filenames[idx]
+                selected_refs = all_files[selected_filename]["refs"]
+                selected_mime = all_files[selected_filename]["mime_type"]
+                print(f"Querying: {selected_filename}")
+            else:
+                print("Invalid selection.")
+                continue
+        except ValueError:
+            print("Invalid input. Enter a number, 'a', or 'e'.")
+            continue
+
+    question = input("You: ").strip()
+    if not question:
+        continue
+
+    answer = ask(selected_refs, selected_mime, question)
+    print(f"\nGemini: {answer}\n")
 
 print("Done!")
