@@ -204,7 +204,7 @@ def ask(all_files_dict, question):
     contents.append(full_prompt)
 
     response = client.models.generate_content(
-        model="gemini-2.5-flash-lite", contents=contents
+        model="gemini-3-pro-preview", contents=contents
     )
 
     return response.text
